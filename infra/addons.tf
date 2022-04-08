@@ -70,7 +70,7 @@ resource "helm_release" "external_dns" {
 
   set {
     name  = "serviceAccount.name"
-    value = "true"
+    value = "external-dns"
   }
 
   set {
