@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.environment }}
+    env: {{ .Values.environment }}
+  name: {{ .Release.Name }}-{{ .Values.environment }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      env: {{ .Values.environment }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        env: {{ .Values.environment }}
+    spec:
+      containers:
+      - image: {{ .Values.container.image }}
+        name: {{ .Release.Name }}
+        ports:
+        - containerPort: 80
+          name: poc
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 200m
+            memory: 128Mi

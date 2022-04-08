@@ -1,0 +1,5 @@
+container:
+  image: edvegas/poc:latest
+environment: dev
+acm_cert_arn: arn:aws:acm:us-west-2:222222222222:certificate/xxxx-xxxx-xxxx-xxxx-xxxx
+domain: poc.example.com
